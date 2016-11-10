@@ -1,8 +1,7 @@
 FROM alpine:3.4
 
-RUN apk --update add python py-setuptools py-pip && \
-    pip install elasticsearch-curator==4.1.2 && \
-    apk del py-pip && \
-    rm -rf /var/cache/apk/*
+RUN apk --update add --no-cache python py-pip && \
+    pip install --no-cache-dir elasticsearch-curator==3.5.1 && \
+    apk del py-pip
 
 ENTRYPOINT ["/usr/bin/curator"]
